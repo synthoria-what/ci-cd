@@ -7,4 +7,4 @@ def test_total_users():
     assert db.get_total_users() == 4
 
 def test_get_users():
-    assert db.get_users() == False
+    assert isinstance(db.get_users(), dict)
