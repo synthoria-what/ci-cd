@@ -1,0 +1,15 @@
+name: poetry-tests
+on: [ pull_request ]
+jobs:
+  poetry-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{matrix.python-version}}
+        uses: actions/checkout@v4
+        with:
+          python-version: ${{matrix.python-version}}
+        run: poetry run pytest
