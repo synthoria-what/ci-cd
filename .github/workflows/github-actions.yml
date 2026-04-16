@@ -25,3 +25,12 @@ jobs:
       - name: Run tests
         run: |
           poetry run pytest
+  
+  build:
+    needs: poetry-tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build app
+        run: echo "building app"
